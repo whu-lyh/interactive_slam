@@ -53,6 +53,10 @@ bool ManualLoopCloseModal::set_end_keyframe(int keyframe_id) {
   return true;
 }
 
+bool ManualLoopCloseModal::has_begin_keyframe() {
+  return begin_keyframe != nullptr;
+}
+
 void ManualLoopCloseModal::close() {
   begin_keyframe = nullptr;
   end_keyframe = nullptr;
@@ -66,7 +70,7 @@ bool ManualLoopCloseModal::run() {
         ImGui::Text("begin_keyframe has not been set");
       }
       if (end_keyframe == nullptr) {
-        ImGui::Text("begin_keyframe has not been set");
+        ImGui::Text("end_keyframe has not been set");
       }
     } else {
       // create OpenGL canvas
